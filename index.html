@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shahnawaj Hussain — Software Developer</title>
+<meta name="description" content="Portfolio of Shahnawaj Hussain — BCA graduate from Bhadohi, aspiring software developer skilled in Core Java and web development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --ivory:#F3EEE3;
+    --wool:#EAE2D2;
+    --ink:#241F1C;
+    --indigo:#28345C;
+    --indigo-deep:#1B2340;
+    --madder:#B23B2E;
+    --gold:#C79A3C;
+    --gold-soft:#DFC076;
+    --muted:#6b6155;
+    --line:rgba(36,31,28,0.12);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans',sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--gold-soft); color:var(--indigo-deep); }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--madder);
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .eyebrow::before{
+    content:'';
+    width:18px; height:1px;
+    background:var(--madder);
+    display:inline-block;
+  }
+
+  h1,h2,h3{ font-family:'Fraunces',serif; font-weight:600; color:var(--indigo-deep); }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+
+  /* ── LOOM DIVIDER — signature element ── */
+  .loom{
+    width:100%; height:34px;
+    display:block;
+  }
+
+  /* ── NAV ── */
+  header{
+    position:fixed; top:0; left:0; width:100%; z-index:100;
+    background:rgba(243,238,227,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1080px; margin:0 auto; padding:0.9rem 1.5rem;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem;
+    color:var(--indigo-deep); letter-spacing:0.01em;
+  }
+  .brand span{ color:var(--madder); }
+  .nav-links{ display:flex; gap:1.9rem; align-items:center; }
+  .nav-links a{
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
+    text-decoration:none; color:var(--ink); opacity:0.7;
+    transition:opacity .25s;
+  }
+  .nav-links a:hover{ opacity:1; color:var(--madder); }
+  .nav-cta{
+    border:1px solid var(--indigo-deep) !important; padding:0.4rem 0.9rem;
+    border-radius:2px; opacity:1 !important;
+  }
+  .nav-cta:hover{ background:var(--indigo-deep); color:var(--ivory) !important; }
+  .mob-btn{ display:none; background:none; border:none; font-size:1.2rem; color:var(--indigo-deep); cursor:pointer; }
+
+  /* ── HERO ── */
+  .hero{
+    padding:9.5rem 0 4rem;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:center;
+  }
+  .hero-name{
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    line-height:0.98;
+    margin:0.7rem 0 1.1rem;
+  }
+  .hero-name em{ font-style:italic; color:var(--madder); font-weight:500; }
+  .hero-lede{
+    max-width:480px; color:var(--muted); font-size:1.05rem; margin-bottom:2rem;
+  }
+  .hero-btns{ display:flex; gap:0.9rem; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.55rem;
+    padding:0.8rem 1.5rem; border-radius:2px;
+    font-family:'JetBrains Mono',monospace; font-size:0.75rem;
+    letter-spacing:0.06em; text-transform:uppercase;
+    text-decoration:none; cursor:pointer; border:1px solid transparent;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  }
+  .btn-solid{ background:var(--indigo-deep); color:var(--ivory); }
+  .btn-solid:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(27,35,64,0.28); }
+  .btn-line{ border-color:var(--indigo-deep); color:var(--indigo-deep); }
+  .btn-line:hover{ background:var(--indigo-deep); color:var(--ivory); transform:translateY(-3px); }
+
+  .hero-portrait{ position:relative; justify-self:center; }
+  .weave-ring{
+    position:absolute; inset:-22px;
+    z-index:0;
+  }
+  .portrait-frame{
+    width:min(300px,72vw); height:min(300px,72vw);
+    border-radius:50%; overflow:hidden; position:relative; z-index:1;
+    border:3px solid var(--ivory);
+    box-shadow:0 20px 50px rgba(27,35,64,0.22);
+  }
+  .portrait-frame img{ width:100%; height:100%; object-fit:cover; }
+  .hero-tag{
+    position:absolute; bottom:-14px; left:50%; transform:translateX(-50%);
+    background:var(--ivory); border:1px solid var(--line);
+    padding:0.4rem 0.9rem; border-radius:20px; z-index:2;
+    font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+    letter-spacing:0.06em; color:var(--indigo-deep); white-space:nowrap;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  /* ── SECTION SHELL ── */
+  section{ padding:4.5rem 0; }
+  .section-head{ margin-bottom:2.4rem; max-width:640px; }
+  .section-head h2{ font-size:clamp(1.8rem,4vw,2.5rem); margin-top:0.5rem; }
+  .section-head p{ color:var(--muted); margin-top:0.7rem; }
+
+  /* ── ABOUT ── */
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
+  .about-grid p{ color:var(--ink); font-size:1rem; margin-bottom:1rem; }
+  .about-grid p:last-child{ margin-bottom:0; }
+  .about-fact-list{ display:flex; flex-direction:column; gap:1rem; }
+  .fact{
+    display:flex; gap:1rem; align-items:flex-start;
+    padding:1rem 1.1rem; background:var(--wool); border-radius:4px;
+    border-left:3px solid var(--gold);
+  }
+  .fact i{ color:var(--madder); margin-top:3px; }
+  .fact strong{ display:block; font-size:0.85rem; letter-spacing:0.02em; }
+  .fact span{ font-size:0.82rem; color:var(--muted); }
+
+  /* ── SKILLS: three woven strands ── */
+  .strands{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .strand{
+    background:#fff; border:1px solid var(--line); border-radius:4px;
+    padding:1.6rem 1.5rem; position:relative; overflow:hidden;
+  }
+  .strand::before{
+    content:''; position:absolute; top:0; left:0; width:100%; height:4px;
+  }
+  .strand.s1::before{ background:var(--indigo); }
+  .strand.s2::before{ background:var(--madder); }
+  .strand.s3::before{ background:var(--gold); }
+  .strand h3{ font-size:1.05rem; margin-bottom:0.2rem; }
+  .strand .eyebrow{ margin-bottom:0.5rem; }
+  .strand ul{ list-style:none; margin-top:0.9rem; display:flex; flex-direction:column; gap:0.55rem; }
+  .strand li{
+    font-size:0.9rem; color:var(--ink); display:flex; align-items:center; gap:0.55rem;
+  }
+  .strand li::before{
+    content:''; width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0;
+  }
+
+  /* ── PROJECT — flagship ── */
+  .project-card{
+    background:var(--indigo-deep); color:var(--ivory);
+    border-radius:6px; padding:clamp(1.8rem,4vw,3rem);
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:2.5rem;
+    position:relative; overflow:hidden;
+  }
+  .project-card::after{
+    content:''; position:absolute; inset:0; opacity:0.08; pointer-events:none;
+    background-image:
+      repeating-linear-gradient(0deg, var(--gold) 0 1px, transparent 1px 14px),
+      repeating-linear-gradient(90deg, var(--gold) 0 1px, transparent 1px 14px);
+  }
+  .project-body{ position:relative; z-index:1; }
+  .project-score{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
+    border-left:1px solid rgba(255,255,255,0.18); padding-left:2rem;
+  }
+  .project-score .num{ font-family:'Fraunces',serif; font-size:3.2rem; color:var(--gold-soft); line-height:1; }
+  .project-score .of{ font-size:0.85rem; color:rgba(255,255,255,0.6); margin-top:0.2rem; }
+  .project-score .label{
+    margin-top:1.3rem; font-family:'JetBrains Mono',monospace; font-size:0.7rem;
+    letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.55);
+  }
+  .project-card h3{ color:var(--ivory); font-size:1.6rem; margin-bottom:0.4rem; }
+  .project-role{
+    font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.06em;
+    color:var(--gold-soft); text-transform:uppercase; margin-bottom:1rem; display:block;
+  }
+  .project-card > .project-body > p{ color:rgba(255,255,255,0.82); margin-bottom:0.9rem; font-size:0.95rem; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:0.5rem; margin:1.2rem 0 1.4rem; }
+  .tag{
+    font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:0.04em;
+    padding:0.3rem 0.7rem; border:1px solid rgba(255,255,255,0.25); border-radius:20px;
+    color:rgba(255,255,255,0.8);
+  }
+  .project-links{ display:flex; gap:0.9rem; flex-wrap:wrap; }
+  .project-links a{
+    font-family:'JetBrains Mono',monospace; font-size:0.74rem; letter-spacing:0.05em;
+    text-decoration:none; color:var(--gold-soft); border-bottom:1px solid rgba(223,192,118,0.4);
+    padding-bottom:2px; transition:opacity .2s;
+  }
+  .project-links a:hover{ opacity:0.75; }
+
+  /* ── EDUCATION: thread timeline ── */
+  .thread{ position:relative; padding-left:2rem; }
+  .thread::before{
+    content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px;
+    background:repeating-linear-gradient(180deg, var(--gold) 0 6px, transparent 6px 11px);
+  }
+  .thread-item{ position:relative; padding-bottom:2.1rem; }
+  .thread-item:last-child{ padding-bottom:0; }
+  .thread-item::before{
+    content:''; position:absolute; left:-2rem; top:5px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--ivory); border:2px solid var(--madder);
+  }
+  .thread-item .t-title{ font-family:'Fraunces',serif; font-size:1.15rem; color:var(--indigo-deep); }
+  .thread-item .t-meta{ font-size:0.85rem; color:var(--muted); margin-top:0.2rem; }
+  .thread-item .t-date{
+    font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--madder);
+    letter-spacing:0.05em; text-transform:uppercase; margin-bottom:0.3rem; display:block;
+  }
+
+  /* ── STRENGTHS ── */
+  .strength-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
+  .strength{
+    text-align:center; padding:1.6rem 1rem; background:#fff;
+    border:1px solid var(--line); border-radius:4px;
+  }
+  .strength i{ font-size:1.3rem; color:var(--madder); margin-bottom:0.7rem; }
+  .strength p{ font-size:0.85rem; color:var(--ink); }
+
+  /* ── CONTACT / FOOTER ── */
+  footer{
+    background:var(--indigo-deep); color:var(--ivory);
+    padding:4rem 0 2rem; margin-top:1rem; position:relative;
+  }
+  .contact-inner{ text-align:center; max-width:560px; margin:0 auto; }
+  .contact-inner .eyebrow{ color:var(--gold-soft); justify-content:center; }
+  .contact-inner .eyebrow::before{ background:var(--gold-soft); }
+  .contact-inner h2{ color:var(--ivory); margin:0.7rem 0 1rem; font-size:clamp(1.8rem,4vw,2.6rem); }
+  .contact-inner p{ color:rgba(255,255,255,0.7); margin-bottom:2rem; }
+  .contact-row{ display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+  .contact-chip{
+    display:inline-flex; align-items:center; gap:0.55rem;
+    border:1px solid rgba(255,255,255,0.22); padding:0.6rem 1.1rem; border-radius:2px;
+    text-decoration:none; color:var(--ivory); font-size:0.85rem; transition:all .25s;
+  }
+  .contact-chip:hover{ background:var(--gold); border-color:var(--gold); color:var(--indigo-deep); }
+  .foot-line{
+    border-top:1px solid rgba(255,255,255,0.14); padding-top:1.5rem;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem;
+    font-size:0.75rem; color:rgba(255,255,255,0.5);
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  /* reveal */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--madder); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ transition-duration:0.01ms !important; animation-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  @media (max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; text-align:center; }
+    .hero-lede{ margin-left:auto; margin-right:auto; }
+    .hero-btns{ justify-content:center; }
+    .about-grid{ grid-template-columns:1fr; }
+    .strands{ grid-template-columns:1fr; }
+    .project-card{ grid-template-columns:1fr; }
+    .project-score{ border-left:none; border-top:1px solid rgba(255,255,255,0.18); padding-left:0; padding-top:1.5rem; flex-direction:row; align-items:baseline; gap:0.6rem; }
+    .strength-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:680px){
+    .nav-links{ position:fixed; inset:0; top:60px; background:var(--ivory); flex-direction:column; justify-content:flex-start; padding-top:2.5rem; gap:2rem; display:none; }
+    .nav-links.open{ display:flex; }
+    .nav-links a{ font-size:1rem; }
+    .mob-btn{ display:block; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">Shahnawaj<span>.</span>Hussain</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" onclick="closeMob()">About</a>
+      <a href="#skills" onclick="closeMob()">Skills</a>
+      <a href="#work" onclick="closeMob()">Work</a>
+      <a href="#education" onclick="closeMob()">Education</a>
+      <a href="#contact" class="nav-cta" onclick="closeMob()">Contact</a>
+    </div>
+    <button class="mob-btn" id="mobBtn" onclick="toggleMob()" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Bhadohi, Uttar Pradesh · BCA Class of 2026</span>
+      <h1 class="hero-name">Shahnawaj<br><em>Hussain</em></h1>
+      <p class="hero-lede">Aspiring software developer with a builder's instinct — I go from Core Java fundamentals to a shipped, responsive web app. Currently looking for my first full-time role in software development.</p>
+      <div class="hero-btns">
+        <a href="#work" class="btn btn-solid"><i class="fas fa-diagram-project"></i> View my work</a>
+        <a href="mailto:shaikhmansuri7860@gmail.com" class="btn btn-line"><i class="fas fa-paper-plane"></i> Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <svg class="weave-ring" viewBox="0 0 300 300" aria-hidden="true">
+        <g stroke="#C79A3C" stroke-width="1" opacity="0.55" fill="none">
+          <circle cx="150" cy="150" r="146" stroke-dasharray="1 7"/>
+        </g>
+        <g stroke="#28345C" stroke-width="1.4" opacity="0.35" fill="none">
+          <circle cx="150" cy="150" r="136"/>
+        </g>
+      </svg>
+      <div class="portrait-frame">
+        <img src="profile.jpeg" alt="Portrait of Shahnawaj Hussain">
+      </div>
+      <div class="hero-tag">&lt;/&gt; Core Java · JS · Web Dev</div>
+    </div>
+  </div>
+</section>
+
+<svg class="loom" viewBox="0 0 1080 34" preserveAspectRatio="none" aria-hidden="true">
+  <defs>
+    <pattern id="weave1" width="28" height="34" patternUnits="userSpaceOnUse">
+      <path d="M0 17 Q7 4 14 17 T28 17" stroke="#C79A3C" stroke-width="1.4" fill="none" opacity="0.55"/>
+      <path d="M0 17 Q7 30 14 17 T28 17" stroke="#28345C" stroke-width="1.4" fill="none" opacity="0.35"/>
+    </pattern>
+  </defs>
+  <rect width="1080" height="34" fill="url(#weave1)"/>
+</svg>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">About</span>
+      <h2>Grounded in fundamentals, drawn to building things end-to-end.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <p>I'm a final-year BCA student from Bhadohi — a district better known for its hand-knotted carpets than its software, which is partly why I like the idea of "weaving" things together myself: strand by strand, from a blank file to a working product.</p>
+        <p>My foundation is Core Java and computer fundamentals, but the project that taught me the most was building a complete web application from scratch: planning the data model, writing the front end, and documenting the whole system the way a real team would.</p>
+        <p>I'm looking for an entry-level developer role where I can keep learning fast, take ownership of real features, and grow into a well-rounded engineer.</p>
+      </div>
+      <div class="about-fact-list">
+        <div class="fact">
+          <i class="fas fa-graduation-cap"></i>
+          <div><strong>BCA, First Division</strong><span>Dayawanti Punj Training Institute, Bhadohi · 2023–2026</span></div>
+        </div>
+        <div class="fact">
+          <i class="fas fa-code-branch"></i>
+          <div><strong>Version control fluent</strong><span>Comfortable with Git & GitHub workflows</span></div>
+        </div>
+        <div class="fact">
+          <i class="fas fa-location-dot"></i>
+          <div><strong>Based in Bhadohi, UP</strong><span>Open to remote & relocation opportunities</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="loom" viewBox="0 0 1080 34" preserveAspectRatio="none" aria-hidden="true"><rect width="1080" height="34" fill="url(#weave1)"/></svg>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Skills</span>
+      <h2>Three strands I keep coming back to.</h2>
+    </div>
+    <div class="strands reveal">
+      <div class="strand s1">
+        <span class="eyebrow">Strand 01</span>
+        <h3>Core Programming</h3>
+        <ul>
+          <li>Java — OOP, data types</li>
+          <li>Control statements & loops</li>
+          <li>Exception handling</li>
+          <li>Problem solving & logic building</li>
+        </ul>
+      </div>
+      <div class="strand s2">
+        <span class="eyebrow">Strand 02</span>
+        <h3>Web Development</h3>
+        <ul>
+          <li>HTML5 & semantic markup</li>
+          <li>CSS3 & responsive layout</li>
+          <li>JavaScript (ES6)</li>
+          <li>DOM & interactive UI</li>
+        </ul>
+      </div>
+      <div class="strand s3">
+        <span class="eyebrow">Strand 03</span>
+        <h3>Systems & Tools</h3>
+        <ul>
+          <li>Database design — SRS, DFD, ERD</li>
+          <li>Git & GitHub</li>
+          <li>E-commerce fundamentals</li>
+          <li>Knowledge management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="loom" viewBox="0 0 1080 34" preserveAspectRatio="none" aria-hidden="true"><rect width="1080" height="34" fill="url(#weave1)"/></svg>
+
+<!-- PROJECT -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Flagship Project</span>
+      <h2>My BCA major project, built for a real wedding.</h2>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-body">
+        <span class="project-role">Frontend Development & Documentation</span>
+        <h3>Wedding e-Invitation & Event Management System</h3>
+        <p>A responsive web app that digitizes a full wedding invitation: a live countdown timer, an add-to-calendar invitation card, and Google Maps venue integration — built with a 3-member team where I owned the front end and the project documentation.</p>
+        <p>Also includes a UPI-based digital gifting module (QR + one-tap UPI ID copy), a family registry with 25+ relative profile cards, multilingual quotes in English, Arabic, Urdu & Hindi, and a lightbox photo gallery.</p>
+        <div class="tag-row">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript ES6</span>
+          <span class="tag">SRS / DFD / ERD</span>
+        </div>
+        <div class="project-links">
+          <a href="https://sarafraj-navaz.github.io/ppt" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> View live site</a>
+          <a href="https://github.com/SHAHNAWAJHUSSAIN221308" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub profile</a>
+        </div>
+      </div>
+      <div class="project-score">
+        <div class="num">144</div>
+        <div class="of">out of 150 — major project evaluation</div>
+        <div class="label">+ 44/50 on project presentation & seminar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="loom" viewBox="0 0 1080 34" preserveAspectRatio="none" aria-hidden="true"><rect width="1080" height="34" fill="url(#weave1)"/></svg>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Education</span>
+      <h2>The thread so far.</h2>
+    </div>
+    <div class="thread reveal">
+      <div class="thread-item">
+        <span class="t-date">2023 – 2026</span>
+        <div class="t-title">Bachelor of Computer Applications (BCA)</div>
+        <div class="t-meta">Dayawanti Punj Training Institute, Bhadohi (Mahatma Gandhi Kashi Vidyapith) · First Division, 69.6%</div>
+      </div>
+      <div class="thread-item">
+        <span class="t-date">2023</span>
+        <div class="t-title">Senior Secondary (XII), CBSE — Commerce</div>
+        <div class="t-meta">J D Public School, Jangiganj, Bhadohi · 64%</div>
+      </div>
+      <div class="thread-item">
+        <span class="t-date">2021</span>
+        <div class="t-title">Secondary (X), CBSE</div>
+        <div class="t-meta">Boonmax Convent School, Sudhawain, Bhadohi · 47.4%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section id="strengths">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Strengths</span>
+      <h2>What I bring to a team.</h2>
+    </div>
+    <div class="strength-grid reveal">
+      <div class="strength"><i class="fas fa-brain"></i><p>Strong logical & analytical thinking</p></div>
+      <div class="strength"><i class="fas fa-bolt"></i><p>Quick learner, adapts fast to new tools</p></div>
+      <div class="strength"><i class="fas fa-people-group"></i><p>Clear communicator & team player</p></div>
+      <div class="strength"><i class="fas fa-check-double"></i><p>Disciplined, consistent performance</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer id="contact">
+  <div class="wrap contact-inner">
+    <span class="eyebrow">Let's talk</span>
+    <h2>Open to entry-level developer roles.</h2>
+    <p>If my strands line up with what you're building, I'd love to hear from you.</p>
+    <div class="contact-row">
+      <a class="contact-chip" href="mailto:shaikhmansuri7860@gmail.com"><i class="fas fa-envelope"></i> shaikhmansuri7860@gmail.com</a>
+      <a class="contact-chip" href="tel:+919695328287"><i class="fas fa-phone"></i> +91 96953 28287</a>
+      <a class="contact-chip" href="https://github.com/SHAHNAWAJHUSSAIN221308" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+    <div class="foot-line wrap">
+      <span>© 2026 Shahnawaj Hussain</span>
+      <span>Bhadohi, Uttar Pradesh, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMob(){
+  const nav = document.getElementById('navLinks');
+  const btn = document.getElementById('mobBtn');
+  const open = nav.classList.toggle('open');
+  btn.innerHTML = open ? '<i class="fas fa-xmark"></i>' : '<i class="fas fa-bars"></i>';
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeMob(){
+  document.getElementById('navLinks').classList.remove('open');
+  const btn = document.getElementById('mobBtn');
+  btn.innerHTML = '<i class="fas fa-bars"></i>';
+  btn.setAttribute('aria-expanded','false');
+}
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{ threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
